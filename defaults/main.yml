@@ -29,6 +29,7 @@ defaults_user:
   sshpub_path:
   # IF NOT SET: uses default of posix.authorized_key module '~/.ssh/authorized_keys'
   # per example: '/etc/ssh/authorized_keys/${USER}' or '/home/${USER}/.ssh/authorized_keys'
+  bashrc: []  # lines to append to bashrc
 
 SYS_AUTH_HC:
   sshpub_user_var: '${USER}'  # '${USER}' will be replaced by the user's name

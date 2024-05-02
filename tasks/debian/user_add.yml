@@ -125,3 +125,16 @@
   when:
     - user.bash_aliases is defined
     - user.bash_aliases | length > 0
+
+- name: "User | Add | {{ name }} | Append to bashrc"
+  ansible.builtin.blockinfile:
+    path: "{{ user_account.home | default(getent_passwd[name][4]) }}/.bashrc"
+    block: |
+      {% for line in user.bashrc | ensure_list %}
+        {{ line }}
+      {% endfor %}
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - custom lines"
+  ignore_errors: true
+  when:
+    - user.bashrc is defined
+    - user.bashrc | ensure_list | length > 0
