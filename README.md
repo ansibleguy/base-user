@@ -30,30 +30,7 @@ ansible-galaxy install -r requirements.yml
 python3 -m pip install -r requirements.txt
 ```
 
-## Functionality
-
-* **Users**
-  * User-scope => limit the servers a user should be created on
-  * Sudoers-privileges for specific commands
-  * SSH Authorized-keys
-  * Set Bash aliases
-
-
-* **Groups**
-  * nested groups (_member inheritance_)
-
-## Info
-
-* **Note:** this role currently only supports debian-based systems
-
-
-* **Note:** Most of the role's functionality can be opted in or out.
-
-  For all available options - see the default-config located in [the main defaults-file](https://github.com/ansibleguy/linux_users/blob/latest/defaults/main.yml)!
-
-
-* **Warning:** Not every setting/variable you provide will be checked for validity. Bad config might break the role!
-
+----
 
 ## Usage
 
@@ -149,6 +126,33 @@ If the current group should inherit all members of another one:
 * nested_groups
 * children
 
+----
+
+## Functionality
+
+* **Users**
+  * User-scope => limit the servers a user should be created on
+  * Sudoers-privileges for specific commands
+  * SSH Authorized-keys
+  * Set Bash aliases
+
+
+* **Groups**
+  * nested groups (_member inheritance_)
+
+## Info
+
+* **Note:** this role currently only supports debian-based systems
+
+
+* **Note:** Most of the role's functionality can be opted in or out.
+
+  For all available options - see the default-config located in [the main defaults-file](https://github.com/ansibleguy/linux_users/blob/latest/defaults/main.yml)!
+
+
+* **Warning:** Not every setting/variable you provide will be checked for validity. Bad config might break the role!
+
+----
 
 ### Example
 
