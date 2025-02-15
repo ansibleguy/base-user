@@ -11,30 +11,26 @@ class FilterModule(object):
             # recursion the extension of the members to process nested groups
 
             for g in groups.values():
-                member_nesting = False
-                parent_nesting = False
+                member_key = None
+                parent_key = None
 
                 if 'member_of' in g:
-                    member_nesting = True
                     member_key = 'member_of'
 
                 elif 'parents' in g:
-                    member_nesting = True
                     member_key = 'parents'
 
                 if 'children' in g:
-                    parent_nesting = True
                     parent_key = 'children'
 
                 elif 'nested_groups' in g:
-                    parent_nesting = True
                     parent_key = 'nested_groups'
 
-                if member_nesting:
+                if member_key is not None:
                     for p in g[member_key]:
                         groups[p]['members'].extend(g['members'])
 
-                if parent_nesting:
+                if parent_key is not None:
                     for c in g[parent_key]:
                         g['members'].extend(groups[c]['members'])
 
